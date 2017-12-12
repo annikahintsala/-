@@ -1,4 +1,5 @@
 import cmath
+import math
 import ikkunasto as ik
 
 elementit = {
@@ -22,10 +23,10 @@ def muuta_osoitinmuotoon():
 		ik.avaa_viesti_ikkuna("Virhe", "Et antanut kelvollista kompleksilukua!", virhe=False)
 		return muuta_osoitinmuotoon
 	else:
-		napakoordinaatti = cmath.polar(luku[0])
-		kulma = cmath.degrees(luku[1])
-		return napakoordinaatti, kulma
-	tulosta_muutettu_kompleksiluku(napakoordinaatti, kulma)
+		napakoordinaatti = cmath.polar(luku)
+		kulma = math.degrees(napakoordinaatti[1])
+		return napakoordinaatti[0], kulma
+	tulosta_muutettu_kompleksiluku(napakoordinaatti, kulma) #returnin jälkeen ei suoriteta enää mitään. Tänne on turha laittaa mitään
 
 def main():
 	"""Luo käyttöliittymäikkunan, jossa on vasemmalla tekstikenttä otsikoineen,
